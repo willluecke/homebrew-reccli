@@ -1,10 +1,10 @@
 class Reccli < Formula
   desc "Dead-simple terminal recorder with a floating button"
   homepage "https://github.com/willluecke/reccli"
-  url "https://github.com/willluecke/reccli/archive/refs/tags/v1.0.0.tar.gz"
-  sha256 "" # Will be filled in when you create the release
+  url "https://github.com/willluecke/reccli/archive/refs/tags/v1.0.1.tar.gz"
+  sha256 "8831b9163de8e302f39ba28a99905852eb08a2c89d22033af0cde6f67fc1cc73"
   license "MIT"
-  version "1.0.0"
+  version "1.0.1"
 
   depends_on "python@3.11"
 
@@ -23,6 +23,9 @@ class Reccli < Formula
     libexec.install "reccli.py"
     libexec.install "com.reccli.watcher.plist"
     libexec.install "requirements.txt"
+
+    # Install the src directory (export and UI modules)
+    libexec.install "src"
 
     # Create wrapper script in bin
     (bin/"reccli").write_env_script(libexec/"reccli.py", PATH: "#{libexec}/bin:$PATH")
